@@ -7,7 +7,7 @@ const iconStyle = (color) => ({
   fontFamily: "'Material Symbols Outlined'",
   fontWeight: 'normal',
   fontStyle: 'normal',
-  fontSize: '28px',
+  fontSize: '42px',
   lineHeight: 1,
   letterSpacing: 'normal',
   textTransform: 'none',
@@ -17,7 +17,7 @@ const iconStyle = (color) => ({
   direction: 'ltr',
   WebkitFontFeatureSettings: "'liga'",
   WebkitFontSmoothing: 'antialiased',
-  fontVariationSettings: "'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24",
+  fontVariationSettings: "'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 40",
   color,
   userSelect: 'none',
 });
