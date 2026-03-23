@@ -144,7 +144,7 @@ export default function HomePage() {
       </header>
 
       {/* ── 카테고리 목록 ── */}
-      <main className="portal-main" style={{ width: '100%', maxWidth: '800px', margin: '0 auto', padding: '0 20px 40px' }}>
+      <main className="portal-main">
         {filteredCategories.length === 0 ? (
           <div className="portal-empty">
             <p>"{query}"에 해당하는 계산기가 없습니다.</p>
