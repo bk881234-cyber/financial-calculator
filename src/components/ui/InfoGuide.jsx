@@ -14,16 +14,16 @@ export default function InfoGuide({ children }) {
     }}>
       <style>{`
         .info-guide-inner h4 {
-          font-size: 14px;
+          font-size: 18px;
           font-weight: 700;
           color: var(--text-primary);
           margin: 0 0 4px;
         }
         .info-guide-inner h4:not(:first-child) {
-          margin-top: 12px;
+          margin-top: 14px;
         }
         .info-guide-inner p {
-          font-size: 13px;
+          font-size: 16px;
           margin: 0;
           color: var(--text-secondary);
         }
