@@ -7,7 +7,7 @@ const iconStyle = (color) => ({
   fontFamily: "'Material Symbols Outlined'",
   fontWeight: 'normal',
   fontStyle: 'normal',
-  fontSize: '42px',
+  fontSize: '34px',
   lineHeight: 1,
   letterSpacing: 'normal',
   textTransform: 'none',

@@ -1128,7 +1128,7 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   opacity: 0.72;
 }
 
-/* ── 카드 아이콘 (프레임 복구) ── */
+/* ── 카드 아이콘 (글래스모피즘 그라데이션) ── */
 .portal-card-icon {
   width: 52px;
   height: 52px;
@@ -1136,21 +1136,27 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  background: #f8fafc;
-  border: 1.5px solid #e2e8f0;
   border-radius: 12px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   transition: all 0.22s ease;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
 }
 
 .portal-card--available:hover .portal-card-icon {
   transform: translateY(-2px);
-  border-color: var(--blue-400);
-  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
 }
 
-/* 색상 테마 modifier */
-.portal-card-icon--blue   { border-color: rgba(14, 165, 233, 0.25); background: rgba(14, 165, 233, 0.03); }
-.portal-card-icon--green  { border-color: rgba(34, 197, 94, 0.25); background: rgba(34, 197, 94, 0.03); }
+/* 색상 테마 modifier — 은은한 그라데이션 */
+.portal-card-icon--blue   { 
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.12), rgba(14, 165, 233, 0.04));
+  border-color: rgba(14, 165, 233, 0.2); 
+}
+.portal-card-icon--green  { 
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(34, 197, 94, 0.04));
+  border-color: rgba(34, 197, 94, 0.2); 
+}
 
 /* ── 카드 텍스트 ── */
 .portal-card-body {
