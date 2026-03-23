@@ -929,7 +929,7 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   background: white;
   border: 1.5px solid var(--border-card);
   border-radius: var(--r-lg);
-  padding: 20px 24px;
+  padding: 20px 0; /* 좌우 여백 제거하여 꽉 채움 */
   box-shadow: 0 4px 20px rgba(59,130,246,0.06);
 }
 

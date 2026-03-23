@@ -57,7 +57,7 @@ export const CATEGORIES = [
     id: 'real-estate',
     label: '부동산·대출',
     emoji: '🏠',
-    colorVar: 'teal',
+    colorVar: 'green',
     items: [
       {
         id: 'loan-interest',
@@ -105,7 +105,7 @@ export const CATEGORIES = [
     id: 'tax',
     label: '세금·사업',
     emoji: '🏢',
-    colorVar: 'purple',
+    colorVar: 'blue',
     items: [
       {
         id: 'freelancer-33',
