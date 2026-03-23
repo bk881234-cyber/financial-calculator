@@ -1116,34 +1116,23 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   opacity: 0.72;
 }
 
-/* ── 카드 아이콘 (glassmorphism) ── */
+/* ── 카드 아이콘 (프레임 없이 SVG 자체 활용) ── */
 .portal-card-icon {
-  width: 62px;
-  height: 62px;
+  width: 52px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
   flex-shrink: 0;
-  border-radius: 18px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background: rgba(255,255,255,0.55);
-  border: 1.5px solid rgba(255,255,255,0.75);
-  box-shadow: 0 4px 18px rgba(0,0,0,0.10), inset 0 1px 1px rgba(255,255,255,0.8);
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  transition: transform 0.22s ease;
 }
 
 .portal-card--available:hover .portal-card-icon {
   transform: translateY(-2px) scale(1.06);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.14), inset 0 1px 1px rgba(255,255,255,0.8);
 }
 
-/* 색상 테마 */
-.portal-card-icon--blue   { background: rgba(219,234,254,0.55); border-color: rgba(147,197,253,0.5); }
-.portal-card-icon--teal   { background: rgba(204,251,241,0.55); border-color: rgba(94,234,212,0.5); }
-.portal-card-icon--purple { background: rgba(237,233,254,0.55); border-color: rgba(196,181,253,0.5); }
-.portal-card-icon--green  { background: rgba(209,250,229,0.55); border-color: rgba(110,231,183,0.5); }
+/* 색상 테마 modifier — SVG 자체로 표현하므로 비워됩니다 */
+/* .portal-card-icon--[color] 뢰셋은 SVG에 직접 색상을 입히으므로 추가 CSS 비필요 */
 
 /* ── 카드 텍스트 ── */
 .portal-card-body {
@@ -1237,11 +1226,11 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   background: rgba(255,255,255,0.96);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1.5px solid var(--border-card);
+  border-bottom: none;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 12px rgba(59,130,246,0.06);
+  box-shadow: none;
 }
 
 .calc-page-back {
@@ -1267,10 +1256,10 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 
 .calc-page-title {
   flex: 1;
-  font-size: 16px;
-  font-weight: 800;
+  font-size: 20px;
+  font-weight: 900;
   color: var(--text-primary);
-  letter-spacing: -0.4px;
+  letter-spacing: -0.5px;
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
