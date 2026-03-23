@@ -922,10 +922,10 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 
 .portal-home-header-content {
   width: 100%;
-  max-width: 1000px;
+  max-width: 800px; /* 상위 컨테이너와 동일하게 800px로 통일 */
   background: transparent;
   border: none;
-  padding: 12px 0; /* 좌우 패딩 0으로 제거하여 하단 그리드 끝단과 칼같이 정렬 */
+  padding: 12px 20px; /* 로고 라인 정렬을 위한 20px 패딩 */
   box-shadow: none;
 }
 
@@ -1039,14 +1039,14 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   align-items: center;
 }
 
-/* ── 포털 메인 (헤더와 칼정렬) ── */
+/* ── 포털 메인 (헤더와 800px 칼정렬) ── */
 .portal-main {
   flex: 1;
-  padding: 0 0 32px; /* 기본 패딩 0 */
+  padding: 0 20px 32px; /* 20px 패딩으로 고정 */
   display: flex;
   flex-direction: column;
   gap: 32px;
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
@@ -1057,7 +1057,7 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
-    padding: 0 0 40px; /* 좌우 패딩 0으로 고정하여 헤더와 상하 정렬 일치 */
+    padding: 0 20px 40px; /* 20px 패딩으로 헤더 로고와 완벽 정렬 */
     align-items: start;
   }
 }
