@@ -1058,11 +1058,11 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   box-sizing: border-box;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 720px) {
   .portal-main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: 28px;
     padding: 20px 20px 40px;
     align-items: start;
   }
@@ -1100,8 +1100,8 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 .portal-card {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 16px 18px;
+  gap: 12px;
+  padding: 14px 16px;
   background: var(--bg-card);
   border: 1.5px solid var(--border-card);
   border-radius: var(--r-lg);
@@ -1132,13 +1132,13 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 
 /* ── 카드 아이콘 (글래스모피즘 그라데이션) ── */
 .portal-card-icon {
-  width: 52px;
-  height: 52px;
+  width: 46px;
+  height: 46px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  border-radius: 12px;
+  border-radius: 10px;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   transition: all 0.22s ease;
@@ -1182,9 +1182,10 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   color: var(--text-muted);
   font-weight: 400;
   line-height: 1.4;
-  white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 /* ── 카드 우측 요소 ── */
