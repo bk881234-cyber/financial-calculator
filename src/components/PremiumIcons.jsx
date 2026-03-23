@@ -1,207 +1,330 @@
-import React from 'react';
 
-// 공통 프롭스
-const defaultProps = {
-  size: 42,
-  color: 'currentColor',
-};
+const defaultProps = { size: 44, };
 
-/* ── 직장인·급여 (Blue) ── */
-export function PIconNetPay({ size = defaultProps.size, color = defaultProps.color }) {
+/* ─────────────────────────────────────────
+   💼 직장인·급여 — Blue #3B82F6 theme
+───────────────────────────────────────── */
+
+/* 연봉 실수령액 */
+export function PIconNetPay({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21 12V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M18 15H16C14.3431 15 13 13.6569 13 12C13 10.3431 14.3431 9 16 9H21V15H18Z" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <circle cx="16.5" cy="12" r="1.5" fill={color}/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: briefcase */}
+      <rect x="5" y="15" width="26" height="20" rx="4" fill="#3B82F6"/>
+      <path d="M13 15v-3a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v3" fill="#2563EB"/>
+      {/* foreground: dollar circle */}
+      <circle cx="30" cy="30" r="11" fill="#DBEAFE" opacity="0.95"/>
+      <text x="30" y="35" textAnchor="middle" fontSize="13" fontWeight="900" fill="#1D4ED8">₩</text>
     </svg>
   );
 }
 
-export function PIconSeverance({ size = defaultProps.size, color = defaultProps.color }) {
+/* 퇴직금 */
+export function PIconSeverance({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="6" y="4" width="12" height="16" rx="2" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M9 4V3C9 2.44772 9.44772 2 10 2H14C14.5523 2 15 2.44772 15 3V4" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M9 10H15M9 14H15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: calendar */}
+      <rect x="4" y="10" width="26" height="24" rx="4" fill="#3B82F6"/>
+      <rect x="4" y="10" width="26" height="8" rx="4" fill="#2563EB"/>
+      <rect x="11" y="5" width="4" height="10" rx="2" fill="#1E40AF"/>
+      <rect x="21" y="5" width="4" height="10" rx="2" fill="#1E40AF"/>
+      {/* foreground: checkmark badge */}
+      <circle cx="31" cy="31" r="11" fill="#EFF6FF" opacity="0.95"/>
+      <path d="M25 31l4 4 7-8" stroke="#2563EB" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 }
 
-export function PIconUnemployment({ size = defaultProps.size, color = defaultProps.color }) {
+/* 실업급여 */
+export function PIconUnemployment({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 21H21" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
-      <path d="M5 21V11" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
-      <path d="M19 21V11" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
-      <path d="M9 21V11" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
-      <path d="M15 21V11" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
-      <path d="M12 3L2 10H22L12 3Z" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: person */}
+      <circle cx="16" cy="12" r="7" fill="#3B82F6"/>
+      <path d="M4 35c0-8 6-13 12-13s12 5 12 13" fill="#2563EB"/>
+      {/* foreground: shield */}
+      <path d="M22 20 L38 24 L38 34 C38 39 30 42 30 42 C30 42 22 39 22 34 Z" fill="#DBEAFE" opacity="0.95"/>
+      <path d="M27 32l3 3 5-6" stroke="#1D4ED8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 }
 
-export function PIconPartTime({ size = defaultProps.size, color = defaultProps.color }) {
+/* 주휴수당 */
+export function PIconPartTime({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="12" r="9" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
-      <path d="M12 7V12L15 15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: clock */}
+      <circle cx="18" cy="20" r="15" fill="#3B82F6"/>
+      <circle cx="18" cy="20" r="10" fill="#2563EB"/>
+      <path d="M18 13v8l5 3" stroke="#93C5FD" strokeWidth="2" strokeLinecap="round"/>
+      {/* foreground: coin stack */}
+      <ellipse cx="31" cy="34" rx="10" ry="5" fill="#EFF6FF" opacity="0.95"/>
+      <ellipse cx="31" cy="30" rx="10" ry="5" fill="#DBEAFE" opacity="0.95"/>
+      <ellipse cx="31" cy="26" rx="10" ry="5" fill="#BFDBFE" opacity="0.95"/>
     </svg>
   );
 }
 
-export function PIconYearEndTax({ size = defaultProps.size, color = defaultProps.color }) {
+/* 연말정산 */
+export function PIconYearEndTax({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="4" y="4" width="16" height="16" rx="2" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M8 16V12M12 16V8M16 16V14" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: document */}
+      <rect x="5" y="4" width="24" height="30" rx="4" fill="#3B82F6"/>
+      <rect x="9" y="10" width="16" height="2.5" rx="1.25" fill="#93C5FD"/>
+      <rect x="9" y="15" width="12" height="2.5" rx="1.25" fill="#93C5FD"/>
+      <rect x="9" y="20" width="14" height="2.5" rx="1.25" fill="#93C5FD"/>
+      {/* foreground: refund arrow */}
+      <circle cx="30" cy="30" r="12" fill="#EFF6FF" opacity="0.95"/>
+      <path d="M24 30 Q30 22 36 30" stroke="#2563EB" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+      <path d="M33 27l3 3-3 3" stroke="#2563EB" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 }
 
-/* ── 부동산·대출 (Teal) ── */
-export function PIconLoan({ size = defaultProps.size, color = defaultProps.color }) {
+/* ─────────────────────────────────────────
+   🏠 부동산·대출 — Teal #14B8A6 theme
+───────────────────────────────────────── */
+
+/* 대출 이자 */
+export function PIconLoan({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 2L2 7H22L12 2Z" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M4 7V21M20 7V21" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M8 11V17M12 11V17M16 11V17" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M2 21H22" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: house */}
+      <path d="M5 22L18 8l13 14v17H5z" fill="#0D9488"/>
+      <rect x="12" y="27" width="12" height="12" rx="2" fill="#0F766E"/>
+      {/* foreground: piggy bank / coin */}
+      <circle cx="30" cy="17" r="12" fill="#CCFBF1" opacity="0.95"/>
+      <text x="30" y="22" textAnchor="middle" fontSize="13" fontWeight="900" fill="#0D9488">%</text>
     </svg>
   );
 }
 
-export function PIconDsrLimit({ size = defaultProps.size, color = defaultProps.color }) {
+/* DSR 한도 */
+export function PIconDsrLimit({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" fill={color} fillOpacity="0.1" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M12 18V12L16 8" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <circle cx="12" cy="12" r="2" fill={color} stroke={color} strokeWidth="1.5"/>
-      <path d="M3 12H5M19 12H21M12 3V5M12 19V21" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: bar chart */}
+      <rect x="5" y="28" width="7" height="12" rx="2" fill="#0D9488"/>
+      <rect x="15" y="18" width="7" height="22" rx="2" fill="#14B8A6"/>
+      <rect x="25" y="10" width="7" height="30" rx="2" fill="#0D9488"/>
+      {/* foreground: gauge */}
+      <circle cx="33" cy="16" r="10" fill="#CCFBF1" opacity="0.95"/>
+      <path d="M33 22 A6 6 0 0 1 27 16" stroke="#0D9488" strokeWidth="2" fill="none"/>
+      <path d="M33 22 A6 6 0 0 0 39 16" stroke="#5EEAD4" strokeWidth="2" fill="none"/>
+      <line x1="33" y1="16" x2="29" y2="13" stroke="#0D9488" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   );
 }
 
-export function PIconRentConversion({ size = defaultProps.size, color = defaultProps.color }) {
+/* 전월세 전환 */
+export function PIconRentConversion({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 9L12 2L21 9V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V9Z" fill={color} fillOpacity="0.1" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M10 14L8 12M8 12L10 10M8 12H16" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M14 18L16 16M16 16L14 14M16 16H8" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: building (전세) */}
+      <rect x="3" y="14" width="22" height="26" rx="3" fill="#0D9488"/>
+      <rect x="7" y="18" width="5" height="5" rx="1" fill="#5EEAD4"/>
+      <rect x="15" y="18" width="5" height="5" rx="1" fill="#5EEAD4"/>
+      <rect x="7" y="26" width="5" height="5" rx="1" fill="#5EEAD4"/>
+      <path d="M3 14 L14 5 L25 14" fill="#0F766E"/>
+      {/* foreground: arrow + building (월세) */}
+      <rect x="22" y="22" width="20" height="18" rx="3" fill="#CCFBF1" opacity="0.97"/>
+      <path d="M15 20 L28 20" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M25 17 L28 20 L25 23" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 }
 
-export function PIconBrokerageFee({ size = defaultProps.size, color = defaultProps.color }) {
+/* 중개수수료 */
+export function PIconBrokerageFee({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M9 12L11 14L21 4" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <circle cx="6" cy="15" r="3" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
-      <path d="M8.5 13.5L16 6" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: handshake key */}
+      <circle cx="15" cy="18" r="12" fill="#0D9488"/>
+      <circle cx="15" cy="18" r="6" fill="#0F766E"/>
+      <rect x="20" y="17" width="14" height="3" rx="1.5" fill="#0D9488"/>
+      <rect x="30" y="17" width="3" height="6" rx="1.5" fill="#0D9488"/>
+      {/* foreground: receipt */}
+      <rect x="22" y="24" width="18" height="16" rx="3" fill="#CCFBF1" opacity="0.95"/>
+      <rect x="25" y="28" width="12" height="2" rx="1" fill="#0D9488" opacity="0.5"/>
+      <rect x="25" y="32" width="9" height="2" rx="1" fill="#0D9488" opacity="0.5"/>
     </svg>
   );
 }
 
-export function PIconPropertyTax({ size = defaultProps.size, color = defaultProps.color }) {
+/* 취득세·양도세 */
+export function PIconPropertyTax({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 22H20" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
-      <rect x="6" y="8" width="12" height="14" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M12 2L6 8H18L12 2Z" fill={color} fillOpacity="0.3" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M10 12H14M10 16H14" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: city hall */}
+      <rect x="4" y="18" width="28" height="22" rx="2" fill="#0D9488"/>
+      <rect x="4" y="18" width="28" height="5" rx="2" fill="#0F766E"/>
+      <rect x="16" y="8" width="4" height="12" rx="1" fill="#0D9488"/>
+      <rect x="8" y="13" width="20" height="4" rx="1" fill="#0F766E"/>
+      <rect x="10" y="25" width="5" height="7" rx="1" fill="#5EEAD4"/>
+      <rect x="19" y="25" width="5" height="7" rx="1" fill="#5EEAD4"/>
+      {/* foreground: tax badge */}
+      <circle cx="32" cy="14" r="11" fill="#CCFBF1" opacity="0.95"/>
+      <text x="32" y="19" textAnchor="middle" fontSize="11" fontWeight="900" fill="#0D9488">세</text>
     </svg>
   );
 }
 
-/* ── 세금·사업 (Purple) ── */
-export function PIconFreelancer33({ size = defaultProps.size, color = defaultProps.color }) {
+/* ─────────────────────────────────────────
+   🏢 세금·사업 — Purple #8B5CF6 theme
+───────────────────────────────────────── */
+
+/* 프리랜서 3.3% */
+export function PIconFreelancer33({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="4" y="5" width="16" height="11" rx="2" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M2 20H22L20 16H4L2 20Z" fill={color} stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: laptop */}
+      <rect x="4" y="10" width="28" height="20" rx="3" fill="#7C3AED"/>
+      <rect x="7" y="13" width="22" height="14" rx="1" fill="#5B21B6"/>
+      <rect x="2" y="30" width="32" height="4" rx="2" fill="#6D28D9"/>
+      {/* foreground: 3.3% badge */}
+      <circle cx="32" cy="17" r="11" fill="#EDE9FE" opacity="0.96"/>
+      <text x="32" y="21" textAnchor="middle" fontSize="9" fontWeight="900" fill="#6D28D9">3.3%</text>
     </svg>
   );
 }
 
-export function PIconGlobalIncome({ size = defaultProps.size, color = defaultProps.color }) {
+/* 마진율 판매가 */
+export function PIconProfitMargin({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M14 2H6C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V8L14 2Z" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M14 2V8H20" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M16 13H8M16 17H8M10 9H8" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: shopping bag */}
+      <path d="M8 18 L10 38 L34 38 L36 18 Z" fill="#7C3AED"/>
+      <path d="M14 18 C14 11 30 11 30 18" stroke="#5B21B6" strokeWidth="3" fill="none" strokeLinecap="round"/>
+      {/* foreground: tag */}
+      <rect x="24" y="8" width="18" height="22" rx="4" fill="#EDE9FE" opacity="0.96"/>
+      <circle cx="30" cy="15" r="2.5" fill="#7C3AED"/>
+      <path d="M28 22 L38 22M28 26 L35 26" stroke="#7C3AED" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   );
 }
 
-export function PIconVat({ size = defaultProps.size, color = defaultProps.color }) {
+/* 종합소득세 */
+export function PIconGlobalIncome({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M9 14H15M9 10H15M6 4V20L8.5 18.5L11 20L13.5 18.5L16 20L18.5 18.5L21 20V4L18.5 5.5L16 4L13.5 5.5L11 4L8.5 5.5L6 4Z" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: tax document stack */}
+      <rect x="3" y="10" width="24" height="30" rx="4" fill="#8B5CF6"/>
+      <rect x="7" y="16" width="14" height="2.5" rx="1.25" fill="#C4B5FD"/>
+      <rect x="7" y="21" width="10" height="2.5" rx="1.25" fill="#C4B5FD"/>
+      <rect x="7" y="26" width="12" height="2.5" rx="1.25" fill="#C4B5FD"/>
+      {/* background second doc */}
+      <rect x="9" y="6" width="24" height="30" rx="4" fill="#7C3AED" opacity="0.7"/>
+      {/* foreground: tax seal */}
+      <circle cx="32" cy="30" r="11" fill="#EDE9FE" opacity="0.96"/>
+      <text x="32" y="34" textAnchor="middle" fontSize="10" fontWeight="900" fill="#6D28D9">종소세</text>
     </svg>
   );
 }
 
-/* ── 자산증식·투자 (Green) ── */
-export function PIconStockAverage({ size = defaultProps.size, color = defaultProps.color }) {
+/* 부가가치세 */
+export function PIconVat({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M3 3V21H21" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M7 14L11 10L14 13L20 7" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M20 12V7H15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <circle cx="14" cy="13" r="2" fill={color} />
-      <circle cx="7" cy="14" r="2" fill={color} fillOpacity="0.5" />
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: receipt */}
+      <rect x="6" y="4" width="22" height="32" rx="3" fill="#7C3AED"/>
+      <path d="M6 36 Q9 33 12 36 Q15 33 18 36 Q21 33 24 36 Q27 33 28 36 L28 39 L6 39Z" fill="#5B21B6"/>
+      <rect x="10" y="10" width="14" height="2" rx="1" fill="#C4B5FD"/>
+      <rect x="10" y="15" width="10" height="2" rx="1" fill="#C4B5FD"/>
+      {/* foreground: VAT badge */}
+      <circle cx="30" cy="16" r="12" fill="#EDE9FE" opacity="0.96"/>
+      <text x="30" y="20" textAnchor="middle" fontSize="9.5" fontWeight="900" fill="#6D28D9">VAT</text>
     </svg>
   );
 }
 
-export function PIconSavings({ size = defaultProps.size, color = defaultProps.color }) {
+/* ─────────────────────────────────────────
+   📈 자산·투자 — Orange/Amber theme
+───────────────────────────────────────── */
+
+/* 주식 물타기 */
+export function PIconStockAverage({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="3" y="4" width="18" height="16" rx="2" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <circle cx="12" cy="12" r="4" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
-      <path d="M12 10V11M12 13V14M10 12H11M13 12H14" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
-      <path d="M3 8H21M3 16H21" stroke={color} strokeWidth="1.5" strokeOpacity="0.5"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: candlestick chart */}
+      <rect x="5" y="26" width="6" height="14" rx="2" fill="#D97706"/>
+      <rect x="7" y="20" width="2" height="6" fill="#D97706"/>
+      <rect x="15" y="16" width="6" height="24" rx="2" fill="#F59E0B"/>
+      <rect x="17" y="10" width="2" height="6" fill="#F59E0B"/>
+      <rect x="25" y="8" width="6" height="32" rx="2" fill="#D97706"/>
+      <rect x="27" y="4" width="2" height="4" fill="#D97706"/>
+      {/* foreground: average line badge */}
+      <rect x="20" y="4" width="22" height="16" rx="4" fill="#FEF3C7" opacity="0.96"/>
+      <path d="M23 12 L27 9 L31 13 L35 8 L39 11" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
     </svg>
   );
 }
 
-export function PIconCompound({ size = defaultProps.size, color = defaultProps.color }) {
+/* 예적금 */
+export function PIconSavings({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 22V12" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M12 12C12 12 10 3 6 3C4 3 2 5 2 7C2 11 12 12 12 12Z" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M12 12C12 12 14 3 18 3C20 3 22 5 22 7C22 11 12 12 12 12Z" fill={color} fillOpacity="0.3" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: piggy bank */}
+      <ellipse cx="18" cy="24" rx="14" ry="13" fill="#F59E0B"/>
+      <circle cx="28" cy="16" r="5" fill="#D97706"/>
+      <ellipse cx="10" cy="22" rx="3" ry="5" fill="#D97706"/>
+      <rect x="13" y="34" width="5" height="6" rx="2" fill="#D97706"/>
+      <rect x="20" y="34" width="5" height="6" rx="2" fill="#D97706"/>
+      {/* foreground: coin */}
+      <circle cx="32" cy="32" r="11" fill="#FEF3C7" opacity="0.96"/>
+      <circle cx="32" cy="32" r="7" fill="#FDE68A" opacity="0.8"/>
+      <text x="32" y="36" textAnchor="middle" fontSize="9" fontWeight="900" fill="#B45309">이자</text>
     </svg>
   );
 }
 
-export function PIconDividendTax({ size = defaultProps.size, color = defaultProps.color }) {
+/* 복리 수익 */
+export function PIconCompound({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M21.21 15.89A10 10 0 1 1 8 2.83" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M22 12A10 10 0 0 0 12 2V12H22Z" fill={color} fillOpacity="0.2" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: upward curve */}
+      <rect x="3" y="4" width="30" height="32" rx="4" fill="#F59E0B"/>
+      <path d="M6 34 C10 34 14 28 18 22 S26 10 32 8" stroke="#FDE68A" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+      {/* dots on curve */}
+      <circle cx="10" cy="30" r="2.5" fill="white" opacity="0.8"/>
+      <circle cx="18" cy="22" r="2.5" fill="white" opacity="0.8"/>
+      <circle cx="28" cy="12" r="2.5" fill="white" opacity="0.8"/>
+      {/* foreground: x2 multiplier */}
+      <circle cx="32" cy="32" r="12" fill="#FEF3C7" opacity="0.96"/>
+      <text x="32" y="37" textAnchor="middle" fontSize="12" fontWeight="900" fill="#B45309">×2</text>
     </svg>
   );
 }
 
-export function PIconCapitalGains({ size = defaultProps.size, color = defaultProps.color }) {
+/* 배당세 */
+export function PIconDividendTax({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="12" r="9" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M10 8H14C15.1046 8 16 8.89543 16 10C16 11.1046 15.1046 12 14 12H10V8Z" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M10 12H14.5C15.8807 12 17 13.1193 17 14.5C17 15.8807 15.8807 17 14.5 17H10V12Z" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M11 6V8M14 6V8M11 17V19M14 17V19" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: pie chart */}
+      <circle cx="18" cy="20" r="15" fill="#D97706"/>
+      <path d="M18 20 L18 5 A15 15 0 0 1 31 26 Z" fill="#F59E0B"/>
+      <path d="M18 20 L31 26 A15 15 0 0 1 5 26 Z" fill="#B45309"/>
+      {/* foreground: dividend arrow */}
+      <circle cx="32" cy="32" r="12" fill="#FEF3C7" opacity="0.96"/>
+      <path d="M28 36 L32 28 L36 36" stroke="#D97706" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+      <line x1="29" y1="34" x2="35" y2="34" stroke="#D97706" strokeWidth="2" strokeLinecap="round"/>
     </svg>
   );
 }
 
-/* ── 추가 계산기 ── */
-export function PIconProfitMargin({ size = defaultProps.size, color = defaultProps.color }) {
+/* 코인·해외주식 양도세 */
+export function PIconCapitalGains({ size = defaultProps.size }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20Z" fill={color} stroke={color} strokeWidth="1.5"/>
-      <path d="M20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z" fill={color} stroke={color} strokeWidth="1.5"/>
-      <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16 9.68 16H19.4C19.8693 16 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" fill={color} fillOpacity="0.15" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      <path d="M11 10L13 12M15 8L11 12" stroke={color} strokeWidth="1.5" strokeLinecap="round"/>
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      {/* background: globe / coin */}
+      <circle cx="18" cy="20" r="15" fill="#F59E0B"/>
+      <ellipse cx="18" cy="20" rx="6" ry="15" stroke="#FDE68A" strokeWidth="1.5" fill="none"/>
+      <line x1="3" y1="20" x2="33" y2="20" stroke="#FDE68A" strokeWidth="1.5"/>
+      <line x1="5" y1="13" x2="31" y2="13" stroke="#FDE68A" strokeWidth="1"/>
+      <line x1="5" y1="27" x2="31" y2="27" stroke="#FDE68A" strokeWidth="1"/>
+      {/* foreground: 22% tax badge */}
+      <circle cx="32" cy="32" r="12" fill="#FEF3C7" opacity="0.96"/>
+      <text x="32" y="36" textAnchor="middle" fontSize="9" fontWeight="900" fill="#B45309">22%</text>
     </svg>
   );
 }
