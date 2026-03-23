@@ -435,6 +435,62 @@ const useCalculatorStore = create((set, get) => ({
     };
     set((state) => ({ freelancer: { ...state.freelancer, result } }));
   },
+
+  // ─────────────────────────────────────────────
+  //  마진율 및 판매가 계산기
+  // ─────────────────────────────────────────────
+  margin: {
+    cost: 10000,
+    targetMarginRate: 30, // 30%
+    feeRate: 5, // 5%
+    shippingCost: 3000,
+    applyVat: true,
+    result: null,
+  },
+  setMarginInput: (field, value) =>
+    set((state) => ({ margin: { ...state.margin, [field]: value } })),
+  calcMarginResult: () => {
+    const { cost, targetMarginRate, feeRate, shippingCost, applyVat } = get().margin;
+    if (!cost) return;
+    
+    const c = Number(cost) + Number(shippingCost);
+    const m = Number(targetMarginRate) / 100;
+    const f = Number(feeRate) / 100;
+    const vatMultiplier = applyVat ? 1.1 : 1.0;
+    
+    // X = Selling Price excluding VAT
+    // Formula: X - Cost - Fee(X * vatMultiplier * f) = X * m
+    // X - X * vatMultiplier * f - X * m = Cost
+    // X * (1 - vatMultiplier * f - m) = Cost
+    const denominator = 1 - (vatMultiplier * f) - m;
+    
+    let sellingPriceExVat = 0;
+    if (denominator > 0) {
+      sellingPriceExVat = c / denominator;
+    } else {
+      // If the margin and fees are too high (>100%), it's impossible to profit.
+      // We set a fallback or ignore.
+      sellingPriceExVat = c * 2; // fallback just for rendering something
+    }
+
+    const finalSellingPrice = Math.round(sellingPriceExVat * vatMultiplier);
+    const vat = applyVat ? Math.round(finalSellingPrice - sellingPriceExVat) : 0;
+    const fee = Math.round(finalSellingPrice * f);
+    const netProfit = Math.round(sellingPriceExVat - c - fee);
+    const actualMarginRate = Number(((netProfit / sellingPriceExVat) * 100).toFixed(2));
+
+    const result = {
+      finalSellingPrice,
+      sellingPriceExVat: Math.round(sellingPriceExVat),
+      cost: c,
+      vat,
+      fee,
+      netProfit,
+      actualMarginRate,
+    };
+    
+    set((state) => ({ margin: { ...state.margin, result } }));
+  },
 }));
 
 export default useCalculatorStore;

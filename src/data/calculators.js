@@ -116,6 +116,14 @@ export const CATEGORIES = [
         emoji: '💻',
       },
       {
+        id: 'profit-margin',
+        title: '마진율 및 적정 판매가',
+        desc: '스마트스토어 등 쇼핑몰 판매 순수익 계산',
+        path: '/calc/tax/profit-margin',
+        available: true,
+        emoji: '🛒',
+      },
+      {
         id: 'global-income',
         title: '종합소득세 예상',
         desc: 'N잡·사업소득 종합소득세 시뮬레이션',

@@ -2,6 +2,35 @@ import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CATEGORIES, ALL_CALCULATORS } from '../data/calculators';
 
+import {
+  PIconNetPay, PIconSeverance, PIconUnemployment, PIconPartTime, PIconYearEndTax,
+  PIconLoan, PIconDsrLimit, PIconRentConversion, PIconBrokerageFee, PIconPropertyTax,
+  PIconFreelancer33, PIconGlobalIncome, PIconVat, PIconProfitMargin,
+  PIconStockAverage, PIconSavings, PIconCompound, PIconDividendTax, PIconCapitalGains
+} from '../components/PremiumIcons';
+
+const iconMap = {
+  'net-pay': PIconNetPay,
+  'severance': PIconSeverance,
+  'unemployment': PIconUnemployment,
+  'part-time': PIconPartTime,
+  'year-end-tax': PIconYearEndTax,
+  'loan-interest': PIconLoan,
+  'dsr-limit': PIconDsrLimit,
+  'rent-conversion': PIconRentConversion,
+  'brokerage-fee': PIconBrokerageFee,
+  'property-tax': PIconPropertyTax,
+  'freelancer-33': PIconFreelancer33,
+  'global-income': PIconGlobalIncome,
+  'vat': PIconVat,
+  'profit-margin': PIconProfitMargin,
+  'stock-average': PIconStockAverage,
+  'savings': PIconSavings,
+  'compound': PIconCompound,
+  'dividend-tax': PIconDividendTax,
+  'capital-gains': PIconCapitalGains,
+};
+
 /* ── 검색 아이콘 (인라인 SVG) ── */
 function IconSearch() {
   return (
@@ -16,6 +45,7 @@ function IconSearch() {
 /* ── 개별 계산기 카드 ── */
 function CalcCard({ item, categoryColorVar }) {
   const navigate = useNavigate();
+  const IconComponent = iconMap[item.id];
 
   function handleClick() {
     if (item.available) navigate(item.path);
@@ -29,7 +59,7 @@ function CalcCard({ item, categoryColorVar }) {
       aria-label={item.title}
     >
       <span className={`portal-card-icon portal-card-icon--${categoryColorVar}`}>
-        {item.emoji}
+        {IconComponent ? <IconComponent /> : item.emoji}
       </span>
       <span className="portal-card-body">
         <span className="portal-card-title">{item.title}</span>

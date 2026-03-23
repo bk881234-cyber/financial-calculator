@@ -18,6 +18,7 @@ import PropertyTaxCalculator from './components/calculators/PropertyTaxCalculato
 
 // 🏢 세금·사업
 import FreelancerCalculator from './components/calculators/FreelancerCalculator';
+import ProfitMarginCalculator from './components/calculators/ProfitMarginCalculator';
 import GlobalIncomeCalculator from './components/calculators/GlobalIncomeCalculator';
 import VatCalculator from './components/calculators/VatCalculator';
 
@@ -134,6 +135,15 @@ export default function App() {
               seoDescription="알바, 프리랜서, 크리에이터 등 3.3% 사업소득세 원천징수 전/후의 정확한 실수령액을 즉시 계산하고 5월 종합소득세 환급 꿀팁을 확인하세요."
               seoKeywords="3.3%세금계산기, 프리랜서세금, 알바세금, 알바실수령액, 종합소득세, 삼점삼, 원천징수계산기">
               <FreelancerCalculator />
+            </CalculatorPage>
+          } />
+
+          <Route path="/calc/tax/profit-margin" element={
+            <CalculatorPage title="마진율 및 적정 판매가 계산기"
+              seoTitle="쇼핑몰 스마트스토어 마진율 적정 판매가 계산기"
+              seoDescription="원가, 배송비, 목표 마진율, 마켓 수수료, 부가세를 정확히 반영하여 진짜 내 주머니에 남는 순수익과 고객에게 받아야 할 적정 판매가를 역산해 줍니다."
+              seoKeywords="마진계산기, 마진율계산기, 판매가계산기, 스마트스토어마진, 부가세계산, 순수익계산, 쇼핑몰마진">
+              <ProfitMarginCalculator />
             </CalculatorPage>
           } />
 

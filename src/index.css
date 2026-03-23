@@ -95,8 +95,8 @@ body { background: var(--bg-page); overflow-x: hidden; }
 ::-webkit-scrollbar-thumb { background: var(--blue-200); border-radius: 4px; }
 
 input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; }
-input[type=number] { -moz-appearance: textfield; }
+input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; appearance: none; }
+input[type=number] { -moz-appearance: textfield; appearance: textfield; }
 input, select, textarea, button { font-family: inherit; font-size: inherit; }
 
 /* ── 레이아웃 ─────────────────────────────────────────────── */
@@ -1121,18 +1121,26 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 .portal-card-icon {
   width: 46px;
   height: 46px;
-  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 22px;
   flex-shrink: 0;
+  /* SVG icons 자체에 입체감을 주기 위한 부드러운 그림자 */
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
 
-.portal-card-icon--blue   { background: var(--blue-50);  border: 1px solid var(--border-blue); }
-.portal-card-icon--teal   { background: var(--teal-50);  border: 1px solid var(--border-teal); }
-.portal-card-icon--purple { background: #F5F3FF;          border: 1px solid rgba(139,92,246,0.18); }
-.portal-card-icon--green  { background: #F0FDF4;          border: 1px solid rgba(34,197,94,0.2); }
+.portal-card--available:hover .portal-card-icon {
+  transform: translateY(-2px) scale(1.05);
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.12));
+}
+
+/* 색상 테마 - SVG의 currentColor와 연동됨 */
+.portal-card-icon--blue   { color: var(--blue-500); }
+.portal-card-icon--teal   { color: var(--teal-500); }
+.portal-card-icon--purple { color: #8B5CF6; }
+.portal-card-icon--green  { color: #10B981; }
 
 /* ── 카드 텍스트 ── */
 .portal-card-body {
