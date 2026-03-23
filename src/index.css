@@ -1076,6 +1076,15 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   gap: 10px;
 }
 
+/* 웹(태블릿 이상): 2단 그리드 */
+@media (min-width: 600px) {
+  .portal-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+
 /* ── 계산기 카드 ── */
 .portal-card {
   display: flex;
