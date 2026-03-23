@@ -30,7 +30,7 @@
   --grad-primary:   linear-gradient(135deg, #3B82F6 0%, #0EA5E9 50%, #14B8A6 100%);
   --grad-primary-r: linear-gradient(135deg, #14B8A6 0%, #0EA5E9 50%, #3B82F6 100%);
   --grad-hero:      linear-gradient(145deg, #1D4ED8 0%, #2563EB 30%, #0EA5E9 65%, #14B8A6 100%);
-  --grad-bg:        #ffffff;
+  --grad-bg:        linear-gradient(160deg, #EFF6FF 0%, #F0FDFA 100%);
   --grad-teal:      linear-gradient(135deg, #14B8A6, #0D9488);
 
   /* ③ 글로우 */
@@ -53,10 +53,10 @@
   --border-input: rgba(59,130,246,0.16);
 
   /* ⑥ 배경 */
-  --bg-page:  #ffffff;
-  --bg-card:  #ffffff;
-  --bg-input: #f8fafc;
-  --bg-muted: #f1f5f9;
+  --bg-page:  #F0F5FF;
+  --bg-card:  rgba(255,255,255,0.95);
+  --bg-input: rgba(255,255,255,0.8);
+  --bg-muted: rgba(240,246,255,0.85);
 
   /* ⑦ 텍스트 */
   --text-primary:   #1E293B;
@@ -910,20 +910,15 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
-  background-color: #ffffff;
+  background-color: var(--bg-page);
 }
 
-/* ── 포털 홈 헤더 ── */
+/* ── 포털 홈 헤더 (투명화 및 컨텐츠 카드화) ── */
 .portal-home-header {
-  background: rgba(255,255,255,0.96);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1.5px solid var(--border-card);
-  padding: 20px 20px 16px;
+  padding: 16px 20px;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 16px rgba(59,130,246,0.07);
   display: flex;
   justify-content: center;
 }
@@ -931,6 +926,11 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 .portal-home-header-content {
   width: 100%;
   max-width: 1000px;
+  background: white;
+  border: 1.5px solid var(--border-card);
+  border-radius: var(--r-lg);
+  padding: 20px 24px;
+  box-shadow: 0 4px 20px rgba(59,130,246,0.06);
 }
 
 .portal-home-header-inner {
@@ -1043,7 +1043,7 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   align-items: center;
 }
 
-/* ── 포털 메인 ── */
+/* ── 포털 메인 (헤더 카드와 칼정렬) ── */
 .portal-main {
   flex: 1;
   padding: 24px 20px 32px;
@@ -1060,8 +1060,8 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   .portal-main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    padding: 28px 20px 40px;
+    gap: 32px;
+    padding: 28px 0 40px; /* 좌우 패딩 제거하여 헤더 카드 끝단과 정렬 */
     align-items: start;
   }
 }
