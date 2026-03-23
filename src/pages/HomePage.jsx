@@ -114,8 +114,8 @@ export default function HomePage() {
   return (
     <div className="portal-home">
       {/* ── 홈 헤더 ── */}
-      <header className="portal-home-header">
-        <div className="portal-home-header-content">
+      <header className="portal-home-header" style={{ background: 'transparent', boxShadow: 'none', border: 'none', padding: '16px 0 0', display: 'flex', justifyContent: 'center' }}>
+        <div className="portal-home-header-content" style={{ width: '100%', maxWidth: '800px', padding: '0 20px', background: 'transparent', border: 'none', boxShadow: 'none' }}>
           <div className="portal-home-header-inner">
             <img src="/vl_icon.png" alt="로고" className="portal-home-logo" />
             <div>
@@ -144,7 +144,7 @@ export default function HomePage() {
       </header>
 
       {/* ── 카테고리 목록 ── */}
-      <main className="portal-main">
+      <main className="portal-main" style={{ width: '100%', maxWidth: '800px', margin: '0 auto', padding: '0 20px 40px' }}>
         {filteredCategories.length === 0 ? (
           <div className="portal-empty">
             <p>"{query}"에 해당하는 계산기가 없습니다.</p>
