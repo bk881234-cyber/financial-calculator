@@ -923,6 +923,13 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   top: 0;
   z-index: 100;
   box-shadow: 0 2px 16px rgba(59,130,246,0.07);
+  display: flex;
+  justify-content: center;
+}
+
+.portal-home-header-content {
+  width: 100%;
+  max-width: 1024px;
 }
 
 .portal-home-header-inner {
@@ -1038,10 +1045,14 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
 /* ── 포털 메인 ── */
 .portal-main {
   flex: 1;
-  padding: 24px 18px 32px;
+  flex: 1;
+  padding: 24px 20px 32px;
   display: flex;
   flex-direction: column;
   gap: 32px;
+  max-width: 1024px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 @media (min-width: 600px) {
@@ -1116,7 +1127,7 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   opacity: 0.72;
 }
 
-/* ── 카드 아이콘 (프레임 부활) ── */
+/* ── 카드 아이콘 ── */
 .portal-card-icon {
   width: 52px;
   height: 52px;
@@ -1124,22 +1135,14 @@ input, select, textarea, button { font-family: inherit; font-size: inherit; }
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  background: var(--bg-input);
-  border: 1.5px solid var(--border-blue);
-  border-radius: 14px;
   transition: all 0.22s ease;
 }
 
 .portal-card--available:hover .portal-card-icon {
   transform: translateY(-2px);
-  border-color: var(--blue-400);
-  background: white;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-/* 색상 테마 modifier */
-.portal-card-icon--blue   { border-color: rgba(14, 165, 233, 0.2); }
-.portal-card-icon--green  { border-color: rgba(34, 197, 94, 0.2); }
+/* .portal-card-icon--blue/green modifier 레벨에서 추가 스타일 정의 가능 */
 
 /* ── 카드 텍스트 ── */
 .portal-card-body {

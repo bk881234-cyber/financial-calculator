@@ -115,31 +115,31 @@ export default function HomePage() {
     <div className="portal-home">
       {/* ── 홈 헤더 ── */}
       <header className="portal-home-header">
-        <div className="portal-home-header-inner">
-          <img src="/vl_icon.png" alt="로고" className="portal-home-logo" />
-          <div>
-            <h1 className="portal-home-title" style={{ fontSize: '28px', fontWeight: 900, letterSpacing: '-0.8px' }}>생활 금융 계산기</h1>
-            <p className="portal-home-subtitle">
-              대출·세금·연봉·투자, 필요한 계산기를 바로 찾아보세요
-            </p>
+        <div className="portal-home-header-content">
+          <div className="portal-home-header-inner">
+            <img src="/vl_icon.png" alt="로고" className="portal-home-logo" />
+            <div>
+              <h1 className="portal-home-title" style={{ fontSize: '28px', fontWeight: 900, letterSpacing: '-0.8px' }}>생활 금융 계산기</h1>
+              <p className="portal-home-subtitle">
+                대출·세금·연봉·투자, 필요한 계산기를 바로 찾아보세요
+              </p>
+            </div>
           </div>
-        </div>
 
-
-
-        {/* 검색창 */}
-        <div className="portal-search-wrap">
-          <span className="portal-search-icon"><IconSearch /></span>
-          <input
-            className="portal-search-input"
-            type="text"
-            placeholder="계산기 이름을 검색하세요 (예: 퇴직, 연말, DSR)"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-          />
-          {query && (
-            <button className="portal-search-clear" onClick={() => setQuery('')}>✕</button>
-          )}
+          {/* 검색창 */}
+          <div className="portal-search-wrap">
+            <span className="portal-search-icon"><IconSearch /></span>
+            <input
+              className="portal-search-input"
+              type="text"
+              placeholder="계산기 이름을 검색하세요 (예: 퇴직, 연말, DSR)"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            {query && (
+              <button className="portal-search-clear" onClick={() => setQuery('')}>✕</button>
+            )}
+          </div>
         </div>
       </header>
 
