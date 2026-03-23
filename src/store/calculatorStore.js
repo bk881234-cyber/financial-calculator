@@ -155,6 +155,38 @@ const useCalculatorStore = create((set, get) => ({
     const result = calcStockAverage(entries);
     set((state) => ({ stock: { ...state.stock, result } }));
   },
+
+  // ─────────────────────────────────────────────
+  //  6. 프리랜서 세금 (3.3%)
+  // ─────────────────────────────────────────────
+  freelancer: {
+    amount: 1000000,
+    result: null,
+  },
+  setFreelancerInput: (field, value) =>
+    set((state) => ({
+      freelancer: { ...state.freelancer, [field]: value },
+    })),
+  calcFreelancerResult: () => {
+    const { amount } = get().freelancer;
+    if (!amount) return;
+    const amt = Number(amount);
+    
+    // 원단위 절사
+    const incomeTax = Math.floor((amt * 0.03) / 10) * 10;
+    const localTax = Math.floor((amt * 0.003) / 10) * 10;
+    const totalTax = incomeTax + localTax;
+    const netAmount = amt - totalTax;
+
+    const result = {
+      amount: amt,
+      incomeTax,
+      localTax,
+      totalTax,
+      netAmount,
+    };
+    set((state) => ({ freelancer: { ...state.freelancer, result } }));
+  },
 }));
 
 export default useCalculatorStore;

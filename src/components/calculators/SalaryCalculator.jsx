@@ -1,12 +1,14 @@
 import { useRef } from 'react';
 import {
-  BarChart, Bar, XAxis, YAxis, Tooltip,
+  BarChart, Bar, XAxis, YAxis, Tooltip as RechartsTooltip,
   ResponsiveContainer, Cell,
 } from 'recharts';
 import useCalculatorStore from '../../store/calculatorStore';
 import { formatKRW, formatKRWShort } from '../../utils/formulas';
 import ShareButton from '../ui/ShareButton';
 import NumberInput from '../ui/NumberInput';
+import Tooltip from '../ui/Tooltip';
+import InfoGuide from '../ui/InfoGuide';
 import {
   IconBriefcase, IconFood, IconUsers,
   IconShield, IconDollarSign, IconBarChart,
@@ -79,6 +81,7 @@ export default function SalaryCalculator() {
             <label className="input-label">
               <span className="input-icon"><IconFood size={16} /></span>
               월 비과세액 (식대 등)
+              <Tooltip text="식대(최대 20만원), 자가운전보조금(최대 20만원), 육아수당 등 세금을 전혀 떼지 않는 금액입니다. 비과세 액수가 클수록 내 실수령액이 늘어납니다." />
             </label>
           </div>
           <div className="preset-group" style={{ marginBottom: 10 }}>
@@ -106,6 +109,7 @@ export default function SalaryCalculator() {
             <label className="input-label">
               <span className="input-icon"><IconUsers size={16} /></span>
               부양가족 수 (본인 포함)
+              <Tooltip text="기본 공제 대상자(본인, 배우자, 직계가족 중 연초과 소득 100만원 이하)의 수입니다. 많을수록 소득세 원천징수액이 줄어듭니다." />
             </label>
           </div>
           <div className="preset-group">
@@ -215,7 +219,7 @@ export default function SalaryCalculator() {
                 <XAxis type="number" hide />
                 <YAxis type="category" dataKey="name"
                   tick={{ fontSize: 13, fill: 'var(--text-secondary)', fontWeight: 700 }} width={56} />
-                <Tooltip formatter={(v) => `${formatKRW(v)}원`}
+                <RechartsTooltip formatter={(v) => `${formatKRW(v)}원`}
                   contentStyle={{ borderRadius: 12, fontSize: 14 }} />
                 <Bar dataKey="value" radius={[0, 6, 6, 0]} barSize={18}
                   label={{
@@ -233,14 +237,14 @@ export default function SalaryCalculator() {
 
           <ShareButton targetRef={resultRef} filename="연봉실수령계산결과" />
 
-          <div className="tip-box">
-            <div className="tip-title">💼 연봉 협상 꿀팁</div>
-            <p>
-              • 비과세 항목(식대 월 20만원, 차량유지비 등)을 늘리면 실수령액이 높아집니다.<br />
-              • 연봉이 올라갈수록 누진세 구간이 올라가므로 <strong>세후 금액 기준</strong>으로 비교하세요.<br />
-              • 인사담당자에게 "실수령 기준 OO만원 목표"라고 말하면 더 명확한 협상이 가능합니다.
-            </p>
-          </div>
+          <InfoGuide title="💼 연봉 실수령액 및 소득세 상식">
+            <h4>1. 내 월급에서 왜 이렇게 세금이 많이 나갈까? (4대보험)</h4>
+            <p>직장인은 급여를 받기 전에 가불 형식으로 국가에서 세금과 4대보험을 미리 떼어갑니다 (<strong>원천징수</strong>). 보통 국민연금(4.5%), 건강보험(약 3.545%), 장기요양보험, 고용보험(0.9%) 등 <strong>약 9.3%의 4대보험료</strong>가 강제로(?) 빠져나갑니다.</p>
+            <h4>2. 근로소득세와 매년 하는 연말정산</h4>
+            <p>4대보험 외에도 국세청이 정한 '근로소득 간이세액표'에 따라 소득세가 매월 차감되며, 이 소득세의 10%가 지방소득세로 한 번 더 붙습니다. 매년 2월, 한 해 동안 진짜 써야 했을 세금과 내가 미리 낸 원천징수 세금을 비교하여 차액을 돌려받거나 더 내는 과정이 바로 <strong>연말정산</strong>(일명 13월의 월급)입니다.</p>
+            <h4>3. 연봉 협상 시 명심할 꿀팁: 비과세 항목 챙기기</h4>
+            <p>총 연봉 5천만원이라도 <strong>식대, 보육수당, 연구활동비, 자가운전보조금</strong> 등 비과세 항목이 많이 잡혀있다면 세금 산정 기준액이 낮아져 실제 내 통장에 꽂히는 금액은 훨씬 큽니다. 연봉 협상 시 비과세 한도까지 세팅해 달라고 꼭 요구하세요!</p>
+          </InfoGuide>
         </div>
       )}
     </div>

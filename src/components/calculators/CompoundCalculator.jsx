@@ -1,12 +1,14 @@
 import { useRef } from 'react';
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid,
-  Tooltip, ResponsiveContainer, Legend,
+  Tooltip as RechartsTooltip, ResponsiveContainer, Legend,
 } from 'recharts';
 import useCalculatorStore from '../../store/calculatorStore';
 import { formatKRW, formatKRWShort } from '../../utils/formulas';
 import ShareButton from '../ui/ShareButton';
 import NumberInput from '../ui/NumberInput';
+import Tooltip from '../ui/Tooltip';
+import InfoGuide from '../ui/InfoGuide';
 import {
   IconCoin, IconPercent, IconCalendar, IconTrendUp, IconBarChart,
 } from '../Icons';
@@ -29,6 +31,7 @@ export default function CompoundCalculator() {
             <label className="input-label">
               <span className="input-icon"><IconCoin size={16} /></span>
               초기 원금
+              <Tooltip text="현재 보유하고 있어 바로 투자/저축을 시작할 종잣돈(시드머니)입니다." />
             </label>
             <span className="input-hint">{formatKRWShort(compound.initialAmount)}</span>
           </div>
@@ -91,6 +94,7 @@ export default function CompoundCalculator() {
             <label className="input-label">
               <span className="input-icon"><IconTrendUp size={16} /></span>
               목표 연 수익률
+              <Tooltip text="1년 동안 예상되는 투자 수익률입니다. S&P500 등 시장 대표 주가지수의 장기 평균은 보통 7% ~ 10% 수준입니다." />
             </label>
           </div>
           <div className="preset-group" style={{ marginBottom: 10 }}>
@@ -191,7 +195,7 @@ export default function CompoundCalculator() {
                   tick={{ fontSize: 13, fill: '#94A3B8' }} />
                 <YAxis tickFormatter={(v) => `${(v / 1_000_000).toFixed(0)}백만`}
                   tick={{ fontSize: 12, fill: '#94A3B8' }} width={56} />
-                <Tooltip
+                <RechartsTooltip
                   formatter={(v, name) => [`${formatKRW(v)}원`, name]}
                   labelFormatter={(l) => `${l}년차`}
                   contentStyle={{ borderRadius: 12, fontSize: 14, border: '1px solid rgba(59,130,246,0.18)' }}
@@ -210,14 +214,14 @@ export default function CompoundCalculator() {
 
           <ShareButton targetRef={resultRef} filename="복리수익계산결과" />
 
-          <div className="tip-box">
-            <div className="tip-title">📈 복리의 마법</div>
-            <p>
-              • <strong>72의 법칙</strong>: 연 {compound.annualRate}% 수익률이면 원금이 2배 되는 데 약 {(72 / compound.annualRate).toFixed(1)}년 걸립니다.<br />
-              • 월 적립금을 10만 원만 늘려도 {compound.years}년 후 수천만 원의 차이가 납니다.<br />
-              • 복리는 <strong>시간이 핵심</strong>입니다. 1년이라도 빨리 시작하는 것이 최고의 전략입니다.
-            </p>
-          </div>
+          <InfoGuide title="📈 복리의 마법과 투자 상식">
+            <h4>1. 복리(Compound Interest)란?</h4>
+            <p>수익이 기하급수적으로 불어나는 원리를 말합니다. 첫해에 발생한 이자가 이듬해의 원금에 합쳐져 <strong>'이자에 또 이자가 붙는 눈덩이 효과(Snowball Effect)'</strong>가 일어납니다. 시간이 오랫동안 누적될수록 자산 상승 곡선은 수직에 가깝게 폭발적으로 솟구치게 됩니다.</p>
+            <h4>2. 단리와 복리의 차이</h4>
+            <p>단리는 매년 <strong>최초의 원금</strong>에만 일정한 이자를 주는 방식이며, 복리는 <strong>전체 평가액(원금+이자)</strong>에 이자가 붙는 방식입니다. 예를 들어 5%로 20년을 투자할 때 단리면 자산이 단순히 2배가 되지만, 복리라면 자산이 약 <strong>2.65배</strong> 이상 증가합니다.</p>
+            <h4>3. 투자의 핵심은 '시간'</h4>
+            <p>그래프를 보면 10~15년 차부터 순수 투자 수익이 내가 넣은 납입 원금을 추월하는 골든크로스가 일어남을 알 수 있습니다. 단기간의 높은 수익률을 쫓는 것보다, <strong>하루라도 일찍 투자를 시작해서 시장에 오래 머무르는 것</strong>이 복리의 혜택을 온전히 누리는 최고의 전략입니다.</p>
+          </InfoGuide>
         </div>
       )}
     </div>

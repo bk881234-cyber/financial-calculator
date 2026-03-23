@@ -1,12 +1,14 @@
 import { useRef } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid,
-  Tooltip, ResponsiveContainer, Legend,
+  Tooltip as RechartsTooltip, ResponsiveContainer, Legend,
 } from 'recharts';
 import useCalculatorStore from '../../store/calculatorStore';
 import { formatKRW, formatKRWShort } from '../../utils/formulas';
 import ShareButton from '../ui/ShareButton';
 import NumberInput from '../ui/NumberInput';
+import Tooltip from '../ui/Tooltip';
+import InfoGuide from '../ui/InfoGuide';
 import {
   IconCoin, IconPercent, IconCalendar, IconTrendUp,
   IconLock, IconBarChart,
@@ -84,6 +86,7 @@ export default function SavingsCalculator() {
             <label className="input-label">
               <span className="input-icon"><IconPercent size={16} /></span>
               연 이자율
+              <Tooltip text="은행이 상품 설명서에 고지한 기본 이자율과 우대 이자율을 합친 '최종 금리'를 적어주세요." />
             </label>
           </div>
           <div className="preset-group" style={{ marginBottom: 10 }}>
@@ -126,8 +129,9 @@ export default function SavingsCalculator() {
         {/* 세금우대 토글 */}
         <div className="toggle-row">
           <div>
-            <div style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)' }}>
+            <div style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '6px' }}>
               세금 우대 적용
+              <Tooltip text="비과세 조합원(새마을금고, 신협) 저축이나 ISA 계좌를 활용해 원래 15.4% 내던 세금을 1.4%만 내거나 전면 면제받는 옵션입니다." />
             </div>
             <div style={{ fontSize: 13, color: 'var(--text-muted)', marginTop: 3 }}>
               이자 세율: {savings.taxFree ? '1.4% (세금우대)' : '15.4% (일반)'}
@@ -204,7 +208,7 @@ export default function SavingsCalculator() {
                   tick={{ fontSize: 12, fill: '#94A3B8' }} />
                 <YAxis tickFormatter={(v) => `${(v / 10_000).toFixed(0)}만`}
                   tick={{ fontSize: 11, fill: '#94A3B8' }} width={44} />
-                <Tooltip formatter={(v, name) => [`${formatKRW(v)}원`, name]}
+                <RechartsTooltip formatter={(v, name) => [`${formatKRW(v)}원`, name]}
                   labelFormatter={(l) => `${l}개월차`}
                   contentStyle={{ borderRadius: 12, fontSize: 14 }} />
                 <Legend iconType="square" iconSize={10}
@@ -217,14 +221,14 @@ export default function SavingsCalculator() {
 
           <ShareButton targetRef={resultRef} filename="예적금만기계산결과" />
 
-          <div className="tip-box">
-            <div className="tip-title">🏧 예적금 활용 꿀팁</div>
-            <p>
-              • 세금우대(ISA 계좌 등)를 활용하면 이자를 <strong>{formatKRW(r.tax)}원</strong> 더 받을 수 있어요.<br />
-              • 금리가 높을 때 장기 정기예금으로 금리를 고정하는 전략이 효과적입니다.<br />
-              • 적금은 만기 후 예금으로 굴리면 복리 효과를 극대화할 수 있습니다.
-            </p>
-          </div>
+          <InfoGuide title="🏧 예적금 만기 이자 및 세금 상식">
+            <h4>1. 예금과 적금의 이자 차이</h4>
+            <p><strong>정기예금</strong>은 처음 목돈을 한꺼번에 넣고 만기까지 유지하므로 고시된 이자율이 온전히 적용됩니다. 반면 <strong>정기적금</strong>은 매달 돈을 나누어 넣기 때문에 첫 달 넣은 금액만 1년 치 이자가 온전히 붙고, 마지막 달 원금은 단 한 달 치 이자만 붙습니다. 따라서 <strong>표면 금리가 같더라도 실제 받는 총 이자는 예금이 약 1.8배 이상 많습니다.</strong></p>
+            <h4>2. 이자소득세 15.4%</h4>
+            <p>우리나라에서는 예적금으로 이자 발생 시 무조건 이자의 15.4%(소득세 14% + 지방소득세 1.4%)를 세금으로 국가가 원천징수합니다. 계산결과의 '세후 이자'가 실제로 만기 때 내 통장에 찍히는 진짜 순수익입니다.</p>
+            <h4>3. 세금 우대저축 활용법</h4>
+            <p>아까운 이자소득세를 아끼려면 새마을금고, 신협, 농협 등 상호금융의 <strong>준조합원 세금우대(1.4% 과세)</strong> 제도를 활용하세요. 예금자보호도 되면서 엄청난 세금 혜택을 볼 수 있습니다. 또 다른 방법으로 <strong>ISA(개인종합자산관리계좌)</strong>를 이용하면 발생 수익의 최대 400만원까지 비과세 효과를 누릴 수 있습니다.</p>
+          </InfoGuide>
         </div>
       )}
     </div>

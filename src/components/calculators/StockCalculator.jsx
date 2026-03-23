@@ -3,6 +3,8 @@ import useCalculatorStore from '../../store/calculatorStore';
 import { formatKRW, formatKRWShort } from '../../utils/formulas';
 import ShareButton from '../ui/ShareButton';
 import NumberInput from '../ui/NumberInput';
+import Tooltip from '../ui/Tooltip';
+import InfoGuide from '../ui/InfoGuide';
 import { IconDollarSign, IconPackage, IconBarChart, IconTrendUp, IconCoin } from '../Icons';
 
 function getGaugeColor(pct) {
@@ -128,6 +130,7 @@ export default function StockCalculator() {
                   <label className="input-label" style={{ marginBottom: 8, fontSize: 13 }}>
                     <span className="input-icon"><IconDollarSign size={14} /></span>
                     매수 단가
+                    <Tooltip text="주식을 구매한 1주당 단가(체결가)입니다. (예: 삼성전자 80,000원)" />
                   </label>
                   <div className="input-wrap">
                     <NumberInput className="input-field"
@@ -334,19 +337,14 @@ export default function StockCalculator() {
 
           <ShareButton targetRef={resultRef} filename="주식물타기계산결과" />
 
-          <div className="tip-box" style={{
-            background: 'linear-gradient(135deg, #FFF1F2, #FFF5F5)',
-            borderColor: '#FECDD3',
-          }}>
-            <div className="tip-title" style={{ color: '#9F1239' }}>
-              🧠 물타기 전 꼭 확인하세요
-            </div>
-            <p style={{ color: '#881337' }}>
-              • 물타기는 평단가를 낮추지만 <strong>총 투자금은 늘어납니다</strong>. 손실 규모도 함께 커질 수 있어요.<br />
-              • 하락 원인이 <strong>일시적 변동</strong>인지, <strong>펀더멘털 훼손</strong>인지 먼저 구분하세요.<br />
-              • 분할 매수 원칙(예: -10%마다 1/3씩)을 정하고 감정이 아닌 계획으로 접근하는 것이 핵심입니다.
-            </p>
-          </div>
+          <InfoGuide title="🧠 주식 물타기(평균단가 인하) 전략 가이드">
+            <h4>1. 물타기(Averaging Down)란?</h4>
+            <p>내가 산 주식의 가격이 떨어졌을 때, 더 싼 가격에 주식을 추가 매수하여 <strong>1주당 평균 매입 단가를 낮추는 투자 전략</strong>입니다. 평단가가 낮아지면 주가가 조금만 반등해도 금방 본전이나 수익 구간으로 돌아올 수 있다는 장점이 있습니다.</p>
+            <h4>2. 물타기의 치명적인 함정</h4>
+            <p>가장 주의해야 할 점은 평단가가 낮아지는 대신 <strong>'해당 종목에 물려있는 총 투자금액(비중)'이 눈덩이처럼 커진다</strong>는 것입니다. 단순히 평단가를 낮출 목적만으로 무지성으로 물을 타다 보면, 다른 유망한 종목을 살 기회비용을 잃고 전체 계좌의 리스크가 걷잡을 수 없이 커질 수 있습니다.</p>
+            <h4>3. 올바른 분할 매수 전략 (추가매수 원칙)</h4>
+            <p>무작정 돈이 닿는 대로 사기보다는, <strong>"-10%마다 내 투자금의 10%씩 추가 매수한다"</strong>처럼 본인만의 확고한 마지노선 타점과 수량 분할 계획을 세우는 것이 중요합니다. 하락 원인이 시장의 일시적 공포인지, 기업 이익의 영구적 훼손인지 반드시 분석하고 대응하세요.</p>
+          </InfoGuide>
         </div>
       )}
     </div>

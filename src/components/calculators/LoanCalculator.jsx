@@ -1,11 +1,13 @@
 import { useRef } from 'react';
 import {
-  PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend,
+  PieChart, Pie, Cell, Tooltip as RechartsTooltip, ResponsiveContainer, Legend,
 } from 'recharts';
 import useCalculatorStore from '../../store/calculatorStore';
 import { formatKRW, formatKRWShort } from '../../utils/formulas';
 import ShareButton from '../ui/ShareButton';
 import NumberInput from '../ui/NumberInput';
+import Tooltip from '../ui/Tooltip';
+import InfoGuide from '../ui/InfoGuide';
 import {
   IconCoin, IconPercent, IconCalendar,
   IconHome, IconBarChart, IconDollarSign,
@@ -62,6 +64,9 @@ export default function LoanCalculator() {
             {m.label}
           </button>
         ))}
+        <div style={{ display: 'flex', alignItems: 'center', paddingRight: '8px' }}>
+          <Tooltip text="가장 이자가 적은 방식은 '원금균등', 매월 똑같은 돈을 내는 방식은 '원리금균등' 입니다." />
+        </div>
       </div>
 
       <div className="glass-card input-section">
@@ -103,6 +108,7 @@ export default function LoanCalculator() {
             <label className="input-label">
               <span className="input-icon"><IconPercent size={16} /></span>
               연 이자율
+              <Tooltip text="은행에서 고지한 연간 이자율(%)입니다. 우대금리가 있다면 모두 적용된 '최종 금리'를 입력하세요." />
             </label>
           </div>
           <div className="preset-group" style={{ marginBottom: 10 }}>
@@ -199,7 +205,7 @@ export default function LoanCalculator() {
                     />
                   ))}
                 </Pie>
-                <Tooltip
+                <RechartsTooltip
                   formatter={(v) => `${formatKRW(v)}원`}
                   contentStyle={{ borderRadius: 12, fontSize: 14, border: '1px solid rgba(59,130,246,0.2)' }}
                 />
@@ -244,14 +250,14 @@ export default function LoanCalculator() {
 
           <ShareButton targetRef={resultRef} filename="대출이자계산결과" />
 
-          <div className="tip-box">
-            <div className="tip-title">💡 대출 이자 절약 꿀팁</div>
-            <p>
-              • <strong>원금균등</strong>은 초반 납입이 많지만 총 이자는 원리금균등보다 적습니다.<br />
-              • 금리 0.5% 차이로 30년 기준 수천만 원이 달라집니다. 우대금리 조건을 꼭 확인하세요.<br />
-              • 여유 자금이 생길 때 중도상환을 활용하면 이자를 크게 줄일 수 있습니다.
-            </p>
-          </div>
+          <InfoGuide title="💡 대출 상환 방식 완벽 가이드">
+            <h4>1. 원금균등 상환방식 (안전+절약형)</h4>
+            <p>매월 똑같은 금액의 <strong>'원금'</strong>을 갚고, 남아있는 대출 원금에 따라 이자를 추가로 내는 방식입니다. 이자가 매달 줄어들기 때문에 <strong>총 이자비용이 가장 적게 들어 유리</strong>합니다.</p>
+            <h4>2. 원리금균등 상환방식 (대중형)</h4>
+            <p>매월 갚는 <strong>'원금 + 이자'의 총액이 처음부터 끝까지 동일</strong>한 방식입니다. 매월 빠져나가는 돈이 같아 자금 계획을 세우기 좋습니다. 하지만 초반엔 이자를 많이, 원금을 조금 갚으므로 <strong>총 이자는 원금균등보다 비쌉니다.</strong></p>
+            <h4>3. 만기일시 상환방식 (단기 활용형)</h4>
+            <p>대출 기간 동안에는 <strong>오직 '이자'만 납부</strong>하고, 대출 마지막(만기일)에 <strong>빌린 원금 전액을 한 번에</strong> 갚는 방식입니다. 전세자금대출이나 마이너스 통장에 주로 쓰입니다. 대출 잔액이 줄지 않아 이자를 가장 많이 내게 됩니다.</p>
+          </InfoGuide>
         </div>
       )}
     </div>
