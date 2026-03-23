@@ -79,7 +79,6 @@ function CategorySection({ category }) {
   return (
     <section className="portal-category">
       <div className="portal-category-header">
-        <span className="portal-category-emoji">{category.emoji}</span>
         <h2 className="portal-category-title">{category.label}</h2>
       </div>
       <div className="portal-card-grid">
@@ -119,22 +118,14 @@ export default function HomePage() {
         <div className="portal-home-header-inner">
           <img src="/vl_icon.png" alt="로고" className="portal-home-logo" />
           <div>
-            <h1 className="portal-home-title">생활 금융 계산기</h1>
+            <h1 className="portal-home-title" style={{ fontSize: '28px', fontWeight: 900, letterSpacing: '-0.8px' }}>생활 금융 계산기</h1>
             <p className="portal-home-subtitle">
               대출·세금·연봉·투자, 필요한 계산기를 바로 찾아보세요
             </p>
           </div>
         </div>
 
-        {/* 통계 뱃지 */}
-        <div className="portal-stats">
-          <span className="portal-stat-badge">
-            ✅ 계산기 {availableCount}개 운영중
-          </span>
-          <span className="portal-stat-badge portal-stat-badge--muted">
-            🚧 {totalCount - availableCount}개 준비중
-          </span>
-        </div>
+
 
         {/* 검색창 */}
         <div className="portal-search-wrap">
